@@ -25,8 +25,14 @@
     margin-top: 5px;
     text-align: center;
 }
-.deskText{
+
+.deskText {
     padding-top: 15px;
+}
+
+.deskTextError {
+    padding-top: 15px;
+    color: #ed1442;
 }
 
 .buttons {
@@ -39,11 +45,18 @@
     justify-content: space-around;
     align-items: center;
 }
-.button{
+
+.button {
+    color: #292c35;
     background-color: #83e1fd;
-    border-radius: 5px;
+    border-radius: 7px;
     border: none;
-    height: 40px;
+    height: 35px;
+    font-size: 24px;
 
+    font-weight: bold;
+}
 
+.button:disabled {
+    background-color: #3f7080;
 }

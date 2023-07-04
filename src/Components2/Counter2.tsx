@@ -25,7 +25,7 @@ export const Counter2 = () => {
         <div className={s.wrapper}>
             <div className={s.counter}>
                 <div className={s.desk}>
-                    <Desk2 title={num.toString()}/>
+                    <Desk2 title={num.toString()} className={num == maxNum ? s.deskTextError : s.deskText}/>
                 </div>
                 <div className={s.buttons}>
                     <Button2 className={s.button} name={'inc'} onClick={onclickInc} disabled={maxNum <= num}/>
