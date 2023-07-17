@@ -1,0 +1,111 @@
+.wrapper {
+    margin: 30px;
+    display: flex;
+
+}
+
+.counter, .settings {
+    margin: 20px;
+    border: solid 3px #83e1fd;
+    width: 400px;
+    height: 300px;
+    color: #83e1fd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 7px;
+
+}
+
+.desk {
+    border: solid 2px #83e1fd;
+    border-radius: 7px;
+    font-size: 100px;
+    font-weight: bold;
+    width: 360px;
+    height: 180px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.deskSettings {
+    border: solid 2px #83e1fd;
+    border-radius: 7px;
+    font-weight: bold;
+    width: 360px;
+    height: 180px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.deskText {
+    padding-top: 15px;
+}
+
+.deskTextError {
+    padding-top: 15px;
+    color: #ed1442;
+}
+
+.buttons {
+    border: solid 2px #83e1fd;
+    border-radius: 7px;
+    width: 360px;
+    height: 70px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button {
+    color: #292c35;
+    background-color: #83e1fd;
+    border-radius: 7px;
+    border: none;
+    height: 35px;
+    font-size: 24px;
+
+    font-weight: bold;
+}
+
+.button:disabled {
+    background-color: #3f7080;
+}
+
+.messageOn {
+    font-size: 26px;
+    text-align: center;
+    padding-top: 70px;
+}
+
+.errorMessage {
+    font-size: 36px;
+    text-align: center;
+    padding-top: 65px;
+    color: #ed1442;
+}
+.inputDefault{
+    width: 80px;
+    border: solid #84e2fe 2px;
+    border-radius: 3px;
+    text-align: center;
+    margin-left: 40px;
+
+}.errorInput{
+     width: 80px;
+     border: solid #d3334f 2px;
+     border-radius: 3px;
+     text-align: center;
+     margin-left: 40px;
+     background-color: #ee9bac;
+
+ }
+.button:active{
+    background-color: #292c35;
+    color: #84e2fe;
+}

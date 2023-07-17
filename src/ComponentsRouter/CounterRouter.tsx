@@ -3,8 +3,9 @@ import {Desk2} from './Desk2/Desk2';
 import {Button2} from './Buttons2/Button2';
 import s from './counter.module.css';
 import {SuperInput} from './SuperInput/SuperInput';
+import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
 
-export const Counter2 = () => {
+export const CounterRouter = () => {
     let [minNum, setMinNum] = useState(0);
     let [maxNum, setMaxNum] = useState(5);
     let [minNumForSetting, setMinNumForSetting] = useState(minNum);
@@ -51,31 +52,42 @@ export const Counter2 = () => {
 
     return (
         <div className={s.wrapper}>
-
-                <div className={s.settings}>
+            <Routes>
+                <Route path={"/setting"} element={<div className={s.settings}>
                     <div className={s.deskSettings}>
-                        <SuperInput title={'max value'} startNum={maxNumForSetting} setStartNum={setMaxNumForSetting}
+                        <SuperInput title={'max value'} startNum={maxNumForSetting}
+                                    setStartNum={setMaxNumForSetting}
                                     error={errorOnOf}/>
-                        <SuperInput title={'start value'} startNum={minNumForSetting} setStartNum={setMinNumForSetting}
+                        <SuperInput title={'start value'} startNum={minNumForSetting}
+                                    setStartNum={setMinNumForSetting}
                                     error={errorOnOf}/>
 
                     </div>
                     <div className={s.buttons}>
-                        <Button2 className={s.button} name={'set'} onClick={onclickSet}
-                                 disabled={!(minNumForSetting < maxNumForSetting && minNumForSetting >= 0)}/>
+                        <NavLink to={"/"}><Button2 className={s.button} name={'set'} onClick={onclickSet}
+                                    disabled={!(minNumForSetting < maxNumForSetting && minNumForSetting >= 0)}/></NavLink>
                     </div>
-                </div>
-                <div className={s.counter}>
+                </div>}>
+
+                </Route>
+                <Route path={"/"} element={<div className={s.counter}>
                     <div className={s.desk}>
-                        <Desk2 title={errorOnOf ? error : messageOnOff ? message : num.toString()}
-                               className={errorOnOf ? s.errorMessage : messageOnOff ? s.messageOn : num == maxNum ? s.deskTextError : s.deskText}/>
+                        <Desk2 title={ num.toString()}
+                               className={s.deskText}/>
                     </div>
                     <div className={s.buttons}>
                         <Button2 className={s.button} name={'inc'} onClick={onclickInc} disabled={maxNum <= num}/>
-                        <Button2 className={s.button} name={'reset'} onClick={onclickRest} disabled={num == minNum}/>
+                        <Button2 className={s.button} name={'reset'} onClick={onclickRest}
+                                 disabled={num == minNum}/>
+                        <NavLink to={"/setting"}><Button2 className={s.button} name={'set'} onClick={() => {
+                        }} disabled={false}/></NavLink>
                     </div>
-                </div>
-            </div>
+                </div>}>
+
+
+                </Route>
+            </Routes>
+        </div>
     );
 };
 
