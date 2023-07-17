@@ -1,8 +1,11 @@
 .wrapper {
-    margin: 20px;
+    margin: 30px;
+    display: flex;
+
 }
 
-.counter {
+.counter, .settings {
+    margin: 20px;
     border: solid 3px #83e1fd;
     width: 400px;
     height: 300px;
@@ -24,6 +27,19 @@
     height: 180px;
     margin-top: 5px;
     text-align: center;
+}
+
+.deskSettings {
+    border: solid 2px #83e1fd;
+    border-radius: 7px;
+    font-weight: bold;
+    width: 360px;
+    height: 180px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .deskText {
@@ -59,4 +75,37 @@
 
 .button:disabled {
     background-color: #3f7080;
+}
+
+.messageOn {
+    font-size: 26px;
+    text-align: center;
+    padding-top: 70px;
+}
+
+.errorMessage {
+    font-size: 36px;
+    text-align: center;
+    padding-top: 65px;
+    color: #ed1442;
+}
+.inputDefault{
+    width: 80px;
+    border: solid #84e2fe 2px;
+    border-radius: 3px;
+    text-align: center;
+    margin-left: 40px;
+
+}.errorInput{
+     width: 80px;
+     border: solid #d3334f 2px;
+     border-radius: 3px;
+     text-align: center;
+     margin-left: 40px;
+     background-color: #ee9bac;
+
+ }
+.button:active{
+    background-color: #292c35;
+    color: #84e2fe;
 }
