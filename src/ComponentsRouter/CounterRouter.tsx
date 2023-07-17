@@ -3,7 +3,7 @@ import {Desk2} from './Desk2/Desk2';
 import {Button2} from './Buttons2/Button2';
 import s from './counter.module.css';
 import {SuperInput} from './SuperInput/SuperInput';
-import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
+import { NavLink, Route, Routes} from 'react-router-dom';
 
 export const CounterRouter = () => {
     let [minNum, setMinNum] = useState(0);
@@ -11,13 +11,10 @@ export const CounterRouter = () => {
     let [minNumForSetting, setMinNumForSetting] = useState(minNum);
     let [maxNumForSetting, setMaxNumForSetting] = useState(maxNum);
 
-    let [messageOnOff, setMessageOnOff] = useState<boolean>(false);
     let [errorOnOf, setErrorOnOf] = useState<boolean>(false);
 
     const [num, setNum] = useState(minNum);
 
-    let message = 'event values and press \'set\'';
-    let error = 'Incorrect value!';
 
     const onclickInc = () => {
         if (maxNum > num) {
@@ -34,18 +31,39 @@ export const CounterRouter = () => {
             setMinNum(minNumForSetting);
             setMaxNum(maxNumForSetting);
             setNum(minNumForSetting);
-            setMessageOnOff(false);
+
+
         }
     };
+    useEffect(() => {
+        let localNum = localStorage.getItem('numR');
+        let localMaxNum = localStorage.getItem('maxNumR');
+        let localMinNum = localStorage.getItem('minNumR');
+        let localMinNumForSetting = localStorage.getItem('minNumForSettingR');
+        let localMaxNumForSetting = localStorage.getItem('maxNumForSettingR');
+        if (localNum && localMaxNum && localMinNum && localMaxNumForSetting && localMinNumForSetting) {
+            setNum(JSON.parse(localNum));
+            setMaxNum(JSON.parse(localMaxNum));
+            setMinNum(JSON.parse(localMinNum));
+            setMinNumForSetting(JSON.parse(localMinNumForSetting));
+            setMaxNumForSetting(JSON.parse(localMaxNumForSetting));
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('numR', JSON.stringify(num));
+        localStorage.setItem('minNumR', JSON.stringify(minNum));
+        localStorage.setItem('maxNumR', JSON.stringify(maxNum));
+        localStorage.setItem('minNumForSettingR', JSON.stringify(minNumForSetting));
+        localStorage.setItem('maxNumForSettingR', JSON.stringify(maxNumForSetting));
+    }, [num, maxNum, minNum]);
 
 
     useEffect(() => {
         if (minNumForSetting < 0 || maxNumForSetting < 0 || minNumForSetting >= maxNumForSetting) {
             setErrorOnOf(true);
-            setMessageOnOff(false);
         } else {
             setErrorOnOf(false);
-            setMessageOnOff(true);
         }
     },[minNumForSetting,maxNumForSetting])
 
